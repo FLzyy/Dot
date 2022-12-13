@@ -5,8 +5,8 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
-        "prestart": "node src/register.js",
-        "start": "node src/index.js"
+        "prestart": "tsx src/register.ts",
+        "start": "tsx src/index.ts"
     },
     "repository": {
         "type": "git",
@@ -20,11 +20,18 @@
     },
     "homepage": "https://github.com/FLzyy/Dot#readme",
     "devDependencies": {
+        "@types/node": "^18.11.14",
+        "@typescript-eslint/eslint-plugin": "^5.46.1",
+        "@typescript-eslint/parser": "^5.46.1",
         "eslint": "^8.29.0",
         "eslint-config-prettier": "^8.5.0",
-        "prettier": "^2.8.1"
+        "nodemon": "^2.0.20",
+        "prettier": "^2.8.1",
+        "tsx": "^3.12.1",
+        "typescript": "^4.9.4"
     },
     "dependencies": {
+        "discord-api-types": "^0.37.22",
         "discord.js": "^14.7.1",
         "dotenv": "^16.0.3"
     }

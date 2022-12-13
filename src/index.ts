@@ -35,9 +35,9 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 // Events Init
 (async () => {
     const eventsPath = join(__dirname, 'events');
-    let eventFiles = await readdir(eventsPath);
+    const eventFiles = await readdir(eventsPath);
     const eventFilesFiltered = eventFiles.filter((file) =>
-        file.endsWith('.js')
+        file.endsWith('.ts')
     );
 
     const length = eventFilesFiltered.length;

@@ -5,9 +5,7 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
-        "start": "node src/index.js",
-        "dev_register": "node src/devRegisterCommands.js",
-        "register": "node src/globalRegisterCommands.js"
+        "start": "node src/index.js"
     },
     "repository": {
         "type": "git",

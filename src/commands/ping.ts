@@ -1,12 +1,33 @@
-import { CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import {
+    CommandInteraction,
+    EmbedBuilder,
+    SlashCommandBuilder
+} from 'discord.js';
 
 export const command = {
     data: new SlashCommandBuilder()
         .setName('ping')
         .setDescription('Returns ping.'),
     async execute(interaction: CommandInteraction) {
-        await interaction.reply(
-            `🏓 Pong! ${Date.now() - interaction.createdTimestamp}ms`
-        );
+        const embed = new EmbedBuilder();
+
+        embed.setTitle('🏓 **Pong!**');
+        embed.setDescription('———————————————————');
+        embed.setFields([
+            {
+                name: 'Websocket Ping:',
+                value: interaction.client.ws.ping.toString() + 'ms'
+            },
+            {
+                name: 'Response sent in:',
+                value:
+                    (Date.now() - interaction.createdTimestamp).toString() +
+                    'ms'
+            }
+        ]);
+
+        await interaction.reply({
+            embeds: [embed]
+        });
     }
 };

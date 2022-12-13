@@ -6,8 +6,9 @@
         "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
         "strict": true /* Enable all strict type-checking options. */ /* Skip type checking .d.ts files that are included with TypeScript. */,
         "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-        "rootDir": "./src",
-        "outDir": "./dist"
+        "rootDir": "./",
+        "outDir": "./dist",
+        "resolveJsonModule": true
     },
     "include": ["src/**/*"],
     "exclude": ["dist", "node_modules"]

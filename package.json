@@ -5,6 +5,7 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
+        "prestart": "node src/register.js",
         "start": "node src/index.js"
     },
     "repository": {

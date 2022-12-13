@@ -1,25 +1,32 @@
 {
-  "name": "dot",
-  "version": "1.0.0",
-  "description": "Discord bot, made for learning.",
-  "main": "src/index.js",
-  "type": "module",
-  "scripts": {
-    "start": "node src/index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FLzyy/Dot.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FLzyy/Dot/issues"
-  },
-  "homepage": "https://github.com/FLzyy/Dot#readme",
-  "dependencies": {
-    "discord.js": "^14.7.1",
-    "dotenv": "^16.0.3"
-  }
+    "name": "dot",
+    "version": "1.0.0",
+    "description": "Discord bot, made for learning.",
+    "main": "src/index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev_register": "node src/devRegisterCommands.js",
+        "register": "node src/globalRegisterCommands.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FLzyy/Dot.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/FLzyy/Dot/issues"
+    },
+    "homepage": "https://github.com/FLzyy/Dot#readme",
+    "devDependencies": {
+        "eslint": "^8.29.0",
+        "eslint-config-prettier": "^8.5.0",
+        "prettier": "^2.8.1"
+    },
+    "dependencies": {
+        "discord.js": "^14.7.1",
+        "dotenv": "^16.0.3"
+    }
 }

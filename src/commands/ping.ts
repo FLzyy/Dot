@@ -12,7 +12,6 @@ export const command = {
         const embed = new EmbedBuilder();
 
         embed.setTitle('🏓 **Pong!**');
-        embed.setDescription('———————————————————');
         embed.setFields([
             {
                 name: 'Websocket Ping:',

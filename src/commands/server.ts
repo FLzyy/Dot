@@ -14,6 +14,7 @@ export const command = {
         if (interaction.guild) {
             embed.setTitle(interaction.guild.name);
             embed.setThumbnail(interaction.guild.iconURL());
+            embed.setDescription(interaction.guild.description);
             embed.addFields([
                 {
                     name: 'Members',

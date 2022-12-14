@@ -18,7 +18,15 @@ export const command = {
 
         embed
             .setTitle(interaction.client.user.tag)
-            .setDescription(`${metadata.description}`)
+            .setDescription(
+                `**${interaction.client.user.username}** is in **${
+                    interaction.client.guilds.cache.size
+                }** ${
+                    interaction.client.guilds.cache.size > 1
+                        ? 'servers'
+                        : 'server'
+                }!ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ\nㅤ`
+            )
             .setThumbnail(interaction.client.user.avatarURL())
             .setURL(metadata.homepage)
             .setFields([
@@ -36,16 +44,11 @@ export const command = {
                 },
                 {
                     name: 'Dotenv:',
-                    value: dotenvMetadata.version
+                    value: `${dotenvMetadata.version}\nㅤ`
                 }
             ])
             .setFooter({
                 text: `Version - ${metadata.version}`
-            })
-            .setAuthor({
-                name: metadata.author,
-                iconURL: `https://github.com/${metadata.author.toLowerCase()}.png`,
-                url: `https://${metadata.author.toLowerCase()}.github.io/`
             })
             .setTimestamp();
 

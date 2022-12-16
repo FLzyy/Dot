@@ -7,6 +7,7 @@ import { REST, Routes } from 'discord.js';
 import { readdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import logger from './utils/logger.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const commands = [];
@@ -24,18 +25,18 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 if (commands.length > 0) {
     try {
-        console.log(
-            `🔃 Started registering ${commands.length} application (/) commands.`
+        logger.info(
+            `Started registering ${commands.length} application (/) commands.`
         );
         const data = (await rest.put(Routes.applicationCommands(clientId), {
             body: commands
         })) as unknown[];
-        console.log(
-            `🟢 Successfully registered ${data.length} application (/) commands.`
+        logger.info(
+            `Successfully registered ${data.length} application (/) commands.`
         );
     } catch (error) {
-        console.error(error);
+        logger.error(error);
     }
 } else {
-    console.warn('🟡 There are no global commands');
+    logger.warn('There are no global commands in the folder.');
 }

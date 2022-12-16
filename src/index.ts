@@ -4,10 +4,11 @@ dotenv.config();
 const token = process.env.DISCORD_TOKEN;
 
 // Dependencies Init
-import { Client, Collection, GatewayIntentBits } from 'discord.js';
+import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
 import { readdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import logger from './utils/logger.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
@@ -27,7 +28,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
         if ('data' in command && 'execute' in command) {
             client.commands.set(command.data.name, command);
         } else {
-            console.error(`Invalid Command: ${commandFiles[i]}`);
+            logger.error(`Invalid Command: ${commandFiles[i]}`);
         }
     }
 })();
@@ -51,5 +52,10 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
         }
     }
 })();
+
+// Logging
+client.on(Events.Debug, (m) => logger.debug(m));
+client.on(Events.Warn, (m) => logger.warn(m));
+client.on(Events.Error, (m) => logger.error(m));
 
 client.login(token);

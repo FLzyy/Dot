@@ -5,6 +5,7 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
+        "register": "npx tsx src/register.ts",
         "prestart": "npx tsx src/register.ts | pino-pretty",
         "start": "clear; npx tsx watch --clear-screen=false src/index.ts | pino-pretty"
     },

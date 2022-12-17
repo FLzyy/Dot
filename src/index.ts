@@ -4,7 +4,7 @@ dotenv.config();
 const token = process.env.DISCORD_TOKEN;
 
 // Dependencies Init
-import { Client, Collection, Events, GatewayIntentBits } from 'discord.js';
+import { Client, Collection, GatewayIntentBits } from 'discord.js';
 import { readdir } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

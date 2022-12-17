@@ -5,9 +5,9 @@
     "main": "src/index.js",
     "type": "module",
     "scripts": {
-        "register": "npx tsx src/register.ts",
-        "prestart": "npx tsx src/register.ts | pino-pretty",
-        "start": "clear; npx tsx watch --clear-screen=false src/index.ts | pino-pretty"
+        "register": "npx tsx src/register.ts | pino-pretty",
+        "prestart": "clear; npx tsx src/register.ts | pino-pretty",
+        "start": "npx tsx watch --clear-screen=false src/index.ts | pino-pretty"
     },
     "repository": {
         "type": "git",
@@ -38,6 +38,7 @@
         "discord.js": "^14.7.1",
         "dotenv": "^16.0.3",
         "node-fetch": "^3.3.0",
-        "pino": "^7.0.0-rc.9"
+        "pino": "^7.0.0-rc.9",
+        "vm2": "^3.9.13"
     }
 }

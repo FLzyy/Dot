@@ -1,2 +1,2 @@
 # Dot
-Discord bot, made for learning.
+Discord bot I'm making for learning.

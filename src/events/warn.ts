@@ -5,6 +5,6 @@ export const event = {
     name: Events.Warn,
     once: true,
     execute: (message: string) => {
-        logger.warning(message);
-    }
+        logger.warn(message);
+    },
 };

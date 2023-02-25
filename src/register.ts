@@ -1,7 +1,7 @@
 import { config } from 'dotenv';
 config();
-const token = process.env.DISCORD_TOKEN as string;
-const clientId = process.env.CLIENT_ID as string;
+const token = process.env.DISCORD_TOKEN;
+const clientId = process.env.CLIENT_ID;
 
 import { REST, Routes } from 'discord.js';
 import { readdir } from 'node:fs/promises';

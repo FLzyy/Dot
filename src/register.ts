@@ -1,5 +1,5 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
+import { config } from 'dotenv';
+config();
 const token = process.env.DISCORD_TOKEN as string;
 const clientId = process.env.CLIENT_ID as string;
 
@@ -29,7 +29,7 @@ if (commands.length > 0) {
             `Started registering ${commands.length} application (/) commands.`
         );
         const data = (await rest.put(Routes.applicationCommands(clientId), {
-            body: commands
+            body: commands,
         })) as unknown[];
         logger.info(
             `Successfully registered ${data.length} application (/) commands.`

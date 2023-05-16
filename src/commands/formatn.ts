@@ -1,7 +1,7 @@
 import {
     CommandInteraction,
     CommandInteractionOptionResolver,
-    SlashCommandBuilder
+    SlashCommandBuilder,
 } from 'discord.js';
 
 export const command = {
@@ -31,39 +31,14 @@ export const command = {
         const notationOption = options.getString('notation', true);
         const numberOption = options.getInteger('number', true);
 
-        switch (notationOption) {
-            case 'standard': {
-                const formatter = Intl.NumberFormat('en', {
-                    notation: 'standard'
-                });
+        const formatter = Intl.NumberFormat('en', {
+            notation: notationOption as
+                | 'standard'
+                | 'scientific'
+                | 'engineering'
+                | 'compact',
+        });
 
-                await interaction.reply(formatter.format(numberOption));
-                break;
-            }
-            case 'scientific': {
-                const formatter = Intl.NumberFormat('en', {
-                    notation: 'scientific'
-                });
-
-                await interaction.reply(formatter.format(numberOption));
-                break;
-            }
-            case 'engineering': {
-                const formatter = Intl.NumberFormat('en', {
-                    notation: 'engineering'
-                });
-
-                await interaction.reply(formatter.format(numberOption));
-                break;
-            }
-            case 'compact': {
-                const formatter = Intl.NumberFormat('en', {
-                    notation: 'compact'
-                });
-
-                await interaction.reply(formatter.format(numberOption));
-                break;
-            }
-        }
-    }
+        await interaction.reply(formatter.format(numberOption));
+    },
 };

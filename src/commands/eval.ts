@@ -2,7 +2,7 @@ import {
     CommandInteraction,
     CommandInteractionOptionResolver,
     EmbedBuilder,
-    SlashCommandBuilder
+    SlashCommandBuilder,
 } from 'discord.js';
 import { inspect } from 'util';
 import { VM } from 'vm2';
@@ -36,9 +36,9 @@ export const command = {
                     log: (...args: unknown[]) => log('LOG', args),
                     warn: (...args: unknown[]) => log('WARN', args),
                     error: (...args: unknown[]) => log('ERROR', args),
-                    info: (...args: unknown[]) => log('INFO', args)
-                }
-            }
+                    info: (...args: unknown[]) => log('INFO', args),
+                },
+            },
         });
 
         try {
@@ -46,16 +46,15 @@ export const command = {
 
             embed.setTitle('CONSOLE:');
             embed.setDescription(`\`\`\`${logs}\`\`\``);
-            logs = '';
         } catch (error) {
             embed.setTitle('ERROR:');
             embed.setDescription(
                 `There was an error running your code:\n \`\`\`${error}\`\`\``
             );
-            logs = '';
         }
+        logs = '';
         await interaction.reply({
-            embeds: [embed]
+            embeds: [embed],
         });
-    }
+    },
 };
